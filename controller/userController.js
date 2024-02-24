@@ -86,7 +86,7 @@ const forgotPassword = async (req, res) => {
         if (user) {
             let randomString = randomstring.generate(20);
             console.log(randomString);
-            let link = `https://lucky-sprite-56bcf2.netlify.app//reset-password/${randomString}`
+            let link = `https://lucky-sprite-56bcf2.netlify.app/reset-password/${randomString}`
             console.log(link);
 
             const transporter = nodemailer.createTransport({
