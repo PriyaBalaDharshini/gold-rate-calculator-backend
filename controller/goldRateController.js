@@ -1,5 +1,7 @@
 
 import goldRateModel from '../model/goldRateModel.js'
+import data from '../info/data.js';
+
 
 /* Adding Gold rate */
 
@@ -35,4 +37,30 @@ const getAllGoldRates = async (req, res) => {
     }
 };
 
-export default { addGoldRate, getAllGoldRates }
+const getRate = (req, res) => {
+    try {
+        data.map((ele => {
+            if (ele.date === req.body.selectDate) {
+                res.status(200).send(ele)
+            }
+        }))
+    } catch (error) {
+        console.log(error.message);
+        res.status(500).send({
+            message: "Internal Server Error"
+        });
+    }
+}
+
+const fullData = async (req, res) => {
+    try {
+        res.send(data)
+    } catch (error) {
+        console.log(error.message);
+        res.status(500).send({
+            message: "Internal Server Error"
+        });
+    }
+}
+
+export default { addGoldRate, getAllGoldRates, getRate, fullData }

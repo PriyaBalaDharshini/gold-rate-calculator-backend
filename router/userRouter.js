@@ -18,5 +18,7 @@ router.put("/reset-password", userController.resetPassword);
 
 router.post("/add-goldrate", goldRateController.addGoldRate)
 router.get("/goldrate", goldRateController.getAllGoldRates);
+router.post("/get-rate", goldRateController.getRate)
+router.get("/full-data", goldRateController.fullData)
 
 export default router
